@@ -1,0 +1,8 @@
+:3001 {
+    reverse_proxy /* http://192.168.1.68:5000 {
+        header_up Host {http.reverse_proxy.upstream.hostport}
+        header_down Access-Control-Allow-Headers *
+        header_down Access-Control-Allow-Origin *
+    }
+}
+
