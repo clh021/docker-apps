@@ -1,0 +1,28 @@
+version: "3.1"
+
+services:
+  commafeed:
+    image: saggio/commafeed:latest
+    restart: unless-stopped
+    ports:
+      - 8082:8082
+    volumes:
+      - /config:/config
+      - /data:/home/commafeed
+
+  mysql:
+    image: mariadb:10
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=commafeed
+        #ports:
+        #- 3306:3306
+
+  postgresql:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: commafeed
+        #ports:
+        #- 5432:5432
